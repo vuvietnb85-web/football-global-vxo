@@ -1,6 +1,6 @@
 # Bóng đá Global — PROTOTYPE chưa hoàn thiện
 
-Bản nguồn thử nghiệm riêng tư, chưa deploy. Không phải ứng dụng xem mọi kênh bóng đá toàn cầu.
+Bản nguồn thử nghiệm công khai; demo trên GitHub Pages: https://vuvietnb85-web.github.io/football-global-vxo/ . Không phải ứng dụng xem mọi kênh bóng đá toàn cầu.
 
 ## Chạy local
 Yêu cầu Python 3 và trình duyệt hiện đại:
@@ -32,4 +32,4 @@ Browser đã không truy cập được server local/internal trong môi trườ
 Dữ liệu openfootball/football.json CC0 1.0 Universal, giữ đầy đủ data/LICENSE-source.md; ba mùa 2024/25, 2025/26, 2026/27, 380 trận/mùa. Endpoint hiện dùng trong core.mjs. Xem SOURCES.md và LICENSES.md cho nguồn và giới hạn lãnh thổ/quyền. Mã ứng dụng chưa được chủ sở hữu gắn giấy phép phân phối; không suy diễn CC0 của dữ liệu áp dụng cho mã app.
 
 ## Vệ sinh bản upload
-Không kèm HTML chứng cứ bên thứ ba, logs, phiên đăng nhập, .env, credentials, browser profile, node_modules hay archive. Các ghi chú nguồn là kết quả kiểm tra trước đó ngày 08/11/2026 (Asia/Saigon), không phải xác minh phát lại tại thời điểm tải repo. Không bật Pages/deploy.
+Không kèm HTML chứng cứ bên thứ ba, logs, phiên đăng nhập, .env, credentials, browser profile, node_modules hay archive. Các ghi chú nguồn là kết quả kiểm tra trước đó ngày 08/11/2026 (Asia/Saigon), không phải xác minh phát lại tại thời điểm tải repo. Demo tĩnh triển khai bằng GitHub Pages từ nhánh main, thư mục gốc; không có backend hay xử lý thanh toán.
