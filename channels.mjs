@@ -1,0 +1,6 @@
+export const CHANNELS=[
+{name:'FIFA+ trên DAZN',url:'https://www.fifa.com/en/dazn',info:'FIFA xác nhận chuyển sang DAZN. Miễn phí với tài khoản theo DAZN Help; live chọn lọc + kho VOD, tùy quyền theo lãnh thổ. Link trực tiếp /fifaplus trả 404 tại máy kiểm: dùng trang hướng dẫn FIFA. Chưa kiểm khả dụng Việt Nam. Không nhúng.'},
+{name:'UEFA.tv',url:'https://www.uefa.tv/',info:'Đăng ký MyUEFA miễn phí; live trẻ/nữ/futsal chọn lọc, bốc thăm, highlights và VOD. Live bị giới hạn lãnh thổ. Không mặc định có Champions League trực tiếp; Premium Tây Ban Nha là dịch vụ riêng. Không nhúng.'},
+{name:'VFF Channel — YouTube chính thức',url:'https://www.youtube.com/channel/UCndcERoL9eG-XNljgUk1Gag',info:'VFF xác nhận là kênh chính thức. Video có tiêu đề “Trực tiếp” ngày 05/10/2026 là bản đã đăng, KHÔNG khẳng định đang LIVE. Miễn phí xem video công khai; vùng/đăng nhập có thể tùy video, chưa xác minh tại VN.',embed:'5mA0428QPUQ'},
+{name:'AFC Asian Cup — YouTube chính thức',url:'https://www.youtube.com/AFCAsianCup/videos',info:'Mô tả kênh xác nhận chính thức; có highlights/VOD. Không xác nhận đang phát trực tiếp hay quyền xem mọi trận tại Việt Nam. Tài khoản/vùng tùy video: cần xác minh. Chỉ mở trang, chưa có bằng chứng nhúng video cụ thể.'}
+];

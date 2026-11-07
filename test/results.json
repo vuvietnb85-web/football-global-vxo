@@ -1,0 +1,45 @@
+{
+  "at": "2026-11-07T21:06:14.717Z",
+  "node": {
+    "passed": 7,
+    "tests": [
+      "Parser dữ liệu nguồn thực 380 trận",
+      "Parser từ chối schema sai",
+      "Không bịa kết quả khi thiếu score",
+      "Bảng điểm tính từ trận",
+      "Gain 1.10, compressor −1 dB 20:1, sample peak limiter riêng",
+      "Warm EQ ghi giả định",
+      "Service worker cache tài nguyên shell"
+    ]
+  },
+  "browser": {
+    "status": "NOT_RUN",
+    "reason": "Vòng 2 yêu cầu KHÔNG chạy browser/Playwright; xem BROWSER_CHECKLIST.md"
+  },
+  "screenshots": [],
+  "live": false,
+  "limiter": {
+    "type": "sample-peak, NOT true-peak",
+    "lookaheadMs": 5,
+    "measurements": [
+      {
+        "signal": "sine",
+        "inputPeak": 1.9952623149688795,
+        "inputDBFS": 5.999999999999998,
+        "outputPeak": 0.8912509381337456,
+        "outputDBFS": -0.9999999999999997,
+        "ceiling": 0.8912509381337456,
+        "pass": true
+      },
+      {
+        "signal": "noise",
+        "inputPeak": 1.9952512928608115,
+        "inputDBFS": 5.999952017798375,
+        "outputPeak": 0.8912509381337456,
+        "outputDBFS": -0.9999999999999997,
+        "ceiling": 0.8912509381337456,
+        "pass": true
+      }
+    ]
+  }
+}

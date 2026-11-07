@@ -1,0 +1,10 @@
+.env
+.env.*
+node_modules/
+evidence/
+*.log
+*.zip
+shots/
+.browser/
+playwright-report/
+test-results/
