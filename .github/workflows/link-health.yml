@@ -1,0 +1,42 @@
+# Kiểm tra link miễn phí mỗi tuần (GitHub Actions miễn phí cho repo công khai).
+# Nếu có link hỏng: mở 1 Issue (GitHub tự gửi email cho chủ repo). Khi hết hỏng: tự đóng Issue.
+name: Link health (weekly)
+on:
+  schedule:
+    - cron: "0 1 * * 1"   # 08:00 sáng thứ Hai giờ Việt Nam (01:00 UTC)
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: link-health
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kiểm tra link
+        id: run
+        run: |
+          if bash scripts/check-links.sh scripts/links.txt report.md; then echo "broken=false" >> "$GITHUB_OUTPUT"; else echo "broken=true" >> "$GITHUB_OUTPUT"; fi
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Mở hoặc cập nhật Issue khi có link hỏng
+        if: steps.run.outputs.broken == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="[Link health] Có link hỏng"
+          num=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$TITLE\" in:title" --json number --jq '.[0].number')
+          { echo "Kiểm tra tự động lúc $(TZ=Asia/Ho_Chi_Minh date '+%H:%M %d/%m/%Y') (giờ Việt Nam)."; echo; cat report.md; echo; echo "Chạy lại: Actions → Link health (weekly) → Run workflow."; } > body.md
+          if [ -n "$num" ]; then gh issue comment "$num" --repo "$GITHUB_REPOSITORY" --body-file body.md
+          else gh issue create --repo "$GITHUB_REPOSITORY" --title "$TITLE" --body-file body.md; fi
+      - name: Đóng Issue khi mọi link đã ổn
+        if: steps.run.outputs.broken == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for n in $(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"[Link health] Có link hỏng\" in:title" --json number --jq '.[].number'); do
+            gh issue close "$n" --repo "$GITHUB_REPOSITORY" --comment "Lần kiểm tra mới: mọi link đã hoạt động lại."
+          done
